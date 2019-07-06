@@ -14,7 +14,7 @@ The validation is done with a regular expression, which has been covered by jest
 
 ## Install
 ```
-npm i iso-datestring-validator
+npm i --save iso-datestring-validator
 ```
 or
 ```
@@ -25,10 +25,11 @@ yarn add iso-datestring-validator
 ```
 const isIsoDatestring = require("iso-8601-date-string-validator");
 
-// validate
-if (isIsoDatestring('2019-01-01)){
-    // do stuf, etc
-}
+isIsoDatestring('2019-01-01');
+// true
+
+isIsoDatestring('1900-02-29');
+// false (1900 was not a leap year, so the date is invalid)
 ```
 
 That's all there's to tell about this package.
