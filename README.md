@@ -1,5 +1,7 @@
 # iso-8601-date-string-validator
 
+(the package will be republished on npm soon)
+
 A simple function for ISO9601 date string validation. It validates any YYYY-MM-DD date from 0001-01-01 up to 9999-12-31 with a regular expression, leap years friendly.
 
 The function itself takes two arguments, first being the date string, the second being an optional one symbol separator, by default it is
@@ -21,7 +23,7 @@ yarn add iso-datestring-validator
 
 ## Import and use
 ```
-const isIsoDatestring = require("./iso-8601-date-string-validator");
+const isIsoDatestring = require("iso-8601-date-string-validator");
 
 // validate
 if (isIsoDatestring('2019-01-01)){
