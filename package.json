@@ -1,0 +1,41 @@
+{
+  "devDependencies": {
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "jest": "^24.8.0",
+    "moment": "^2.24.0"
+  },
+  "babel": {
+    "env": {
+      "test": {
+        "plugins": [
+          "transform-es2015-modules-commonjs"
+        ]
+      }
+    }
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "name": "iso8601-datestring-validator",
+  "author": {
+    "name": "Volodymyr Yepishev",
+    "email": "yepishevv@gmail.com"
+  },
+  "license": "MIT",
+  "version": "1.0.0",
+  "keywords": [
+    "date",
+    "iso8601",
+    "regex",
+    "regular expression",
+    "vanilla js",
+    "validation",
+    "validator"
+  ],
+  "main": "iso-date-string-validator.js",
+  "description": "A simple function for ISO9601 date string validation. It validates any YYYY-MM-DD date from 0001-01-01 up to 9999-12-31 with a regular expression, leap years friendly.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Bwca/iso-8601-date-string-validator.git"
+  }
+}
