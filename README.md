@@ -1,4 +1,4 @@
-# iso-8601-datestring-validator
+# iso-datestring-validator
 
 (the package will be republished on npm soon)
 
