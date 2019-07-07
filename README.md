@@ -23,7 +23,7 @@ yarn add iso-datestring-validator
 
 ## Import and use
 ```
-const isIsoDatestring = require("iso-8601-date-string-validator");
+const isIsoDatestring = require("iso-datestring-validator");
 
 isIsoDatestring('2019-01-01');
 // true
