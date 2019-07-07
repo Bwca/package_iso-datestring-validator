@@ -1,8 +1,8 @@
-# iso-8601-date-string-validator
+# iso-8601-datestring-validator
 
 (the package will be republished on npm soon)
 
-A simple function for ISO9601 date string validation. It validates any YYYY-MM-DD date from 0001-01-01 up to 9999-12-31 with a regular expression, leap years friendly.
+A simple function for ISO 8601 date string validation. It validates any YYYY-MM-DD date from 0001-01-01 up to 9999-12-31 with a regular expression, leap years friendly.
 
 The function itself takes two arguments, first being the date string, the second being an optional one symbol separator, by default it is
 
