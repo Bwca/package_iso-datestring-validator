@@ -21,7 +21,7 @@ or
 yarn add iso-datestring-validator
 ```
 
-## Import and use
+## Import and usage
 ```
 const isIsoDatestring = require("iso-datestring-validator");
 
@@ -31,5 +31,7 @@ isIsoDatestring('2019-01-01');
 isIsoDatestring('1900-02-29');
 // false (1900 was not a leap year, so the date is invalid)
 ```
+
+
 
 That's all there's to tell about this package.

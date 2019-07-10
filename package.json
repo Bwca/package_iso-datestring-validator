@@ -28,7 +28,9 @@
     "test": "jest",
     "test-year-month": "jest --t 'isValidYearMonth'",
     "test-date": "jest --t 'isValidDate'",
-    "test-time": "jest --t 'isValidTime'"
+    "test-time": "jest --t 'isValidTime'",
+    "test-zones": "jest --t 'isValidZoneOffset'",
+    "test-iso": "jest --t 'isValidISODateString'"
   },
   "name": "iso-datestring-validator",
   "author": {

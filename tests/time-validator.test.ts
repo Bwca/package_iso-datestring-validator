@@ -6,7 +6,7 @@ const maxDigits = 2;
 
 test(`isValidTime. expect all hours with 0 minutes from 00:00 to 24:00 to validate true, 25+ hours to validate false`, () => {
     for (let hour = 0; hour <= 99; hour++) {
-        const validationResult = isValidTime(`${pad(hour.toString(), maxDigits)}:00`);
+        const validationResult = isValidTime(`${pad(hour.toString(), maxDigits)}:00:00`);
         hour < 25 ? expect(validationResult).toBe(true) : expect(validationResult).toBe(false);
     }
 });
@@ -36,6 +36,6 @@ test(`isValidSeconds. expect seconds to validate only from 0 to 60, to fail when
     }
 });
 
-test(`isValidSeconds. expect time to validate when no separator provided`, () => {
-    isValidTime(`000000`, '');
+test(`isValidTime. expect time to validate when no separator provided`, () => {
+    isValidTime(`000000.000`, '');
 });

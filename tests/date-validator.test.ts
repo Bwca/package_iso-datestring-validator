@@ -1,8 +1,8 @@
-import * as moment from 'moment';
+import moment from 'moment';
 import { isValidDate } from '../src/iso-datestring-validator';
 import { pad } from './utility-functions/pad.function';
 
-test(`isValidDate. expect all moment dates from 0001 up to year 10000 to be true`, () => {
+test(`isValidDate. expect all moment dates from 0001 up to year 10000 to be true. also expect all ISO strings to validate`, () => {
   const dateFormat = "YYYY-MM-DD";
   const startDate = `0001-01-01`;
   const endYear = 10000;
