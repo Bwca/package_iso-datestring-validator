@@ -1,7 +1,7 @@
 import { isValidZoneOffset } from '../src/iso-datestring-validator';
-import { negativeZones } from './constants/negative-zones.const';
+import { negativeZones } from './constants/timezones/negative-zones.const';
 import { pad } from './utility-functions/pad.function';
-import { positiveZones } from './constants/positive-zones.const';
+import { positiveZones } from './constants/timezones/positive-zones.const';
 
 const maxDigits = 2;
 

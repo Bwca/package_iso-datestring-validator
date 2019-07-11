@@ -1,6 +1,6 @@
 import { isValidISODateString } from '../src/iso-datestring-validator';
-import { negativeZones } from './constants/negative-zones.const';
-import { positiveZones } from './constants/positive-zones.const';
+import { negativeZones } from './constants/timezones/negative-zones.const';
+import { positiveZones } from './constants/timezones/positive-zones.const';
 import { validISODateStrings } from './constants/valid-iso-strings.const';
 
 const noZoneString = '2019-07-09T15:03:36';
