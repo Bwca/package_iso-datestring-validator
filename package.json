@@ -38,7 +38,7 @@
     "email": "yepishevv@gmail.com"
   },
   "license": "MIT",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "keywords": [
     "date",
     "iso8601",
@@ -49,7 +49,7 @@
     "validator"
   ],
   "main": "iso-datestring-validator.js",
-  "description": "A simple function for ISO 8601 date string validation. It validates any YYYY-MM-DD date from 0001-01-01 up to 9999-12-31 with a regular expression, leap years friendly.",
+  "description": "The goal of the package is to provide lightweight tools for validating strings denotings dates and time. It includes ISO 8601 datestring validation, simple YYYY-MM-DD date validation and time validation in hh:mm:ss.fff format. See details in readme.",
   "repository": {
     "type": "git",
     "url": "https://github.com/Bwca/iso-datestring-validator.git"

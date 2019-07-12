@@ -1,18 +1,18 @@
 # iso-datestring-validator
 
-(the package will be republished on npm soon)
+## What is it
 
-A simple function for ISO 8601 date string validation. It validates any YYYY-MM-DD date from 0001-01-01 up to 9999-12-31 with a regular expression, leap years friendly.
+A simple package for validating strings denoting dates and time, including ISO 8601 format. The package provides the following functions:
 
-The function itself takes two arguments, first being the date string, the second being an optional one symbol separator, by default it is
+1. Date validation. YYYY-MM-DD format from 0001-01-01 to 9999-12-31, leap year friendly. Custom digit separators and null separators supported: YYYY/MM/DD or YYYYMMDD is no problem.
+2. Time validation. HH:mm:ss.fff format, seconds and fractions of seconds being optional. Custom digit separators supported for HHmmss as well (no custom separator for fractions, it is dot).
+3. Year-month validation.
+4. **ISO 8601 datestring validation** with timezones, with and without separators:
+* 2019-07-09T15:03:36.000+00:00
+* 2019-07-09T15:03:36Z
+* 20190709T150336Z
 
-```
-function(date, separator = "-")
-```
-
-The validation is done with a regular expression, which has been covered by jest tests. It correctly validates all dates between 0001-01-01 and 9999-12-31, correctly recognizing leap years.
-
-## Install
+## Installation
 ```
 npm i --save iso-datestring-validator
 ```
@@ -21,17 +21,73 @@ or
 yarn add iso-datestring-validator
 ```
 
-## Import and usage
+## Import
 ```
-const isIsoDatestring = require("iso-datestring-validator");
+const isoDatestringValidator = require("iso-datestring-validator");
+```
 
-isIsoDatestring('2019-01-01');
+## Usage
+
+### Date validation
+
+Pass a **YYYY-MM-DD** date string to the **isValidDate** function to check it. To validate dates that use a custom digit separator, pass it as the second argument. 
+```
+const isoDatestringValidator = require("iso-datestring-validator");
+
+isoDatestringValidator.isValidDate("2019-01-31");
 // true
 
-isIsoDatestring('1900-02-29');
-// false (1900 was not a leap year, so the date is invalid)
+isoDatestringValidator.isValidDate("20190131");
+// false, no custom digit separator provided, hyphen separator not found in the string
+
+isoDatestringValidator.isValidDate("20190131", '');
+// true
+
+isoDatestringValidator.isValidDate("2019/01/31", '/');
+// true
 ```
 
+### Time validation
+Time string in HH:mm:ss.fff format can be validated with the **isValidTime** function. Seconds and fractions are optional. However, if using fractions min number of numbers is 1 and max is 9.
+
+```
+const isoDatestringValidator = require("iso-datestring-validator");
+
+isoDatestringValidator.isValidTime("13:00");
+// true
+
+isoDatestringValidator.isValidTime("13:00:00");
+// true
+
+isoDatestringValidator.isValidTime("13:00:00.000000000");
+// true
 
 
-That's all there's to tell about this package.
+```
+
+### Year and month validation
+
+These are validated by the **isValidYearMonth** function. Rules same as in the previous case: a string **YYYY-MM** and a custom digit separator if required.
+
+```
+const isoDatestringValidator = require("iso-datestring-validator");
+
+isoDatestringValidator.isValidYearMonth("2019/01", '/');
+// true
+isoDatestringValidator.isValidYearMonth("2019-01");
+// true
+```
+
+### ISO 8601 datestring validation
+Pass a string to **isValidISODateString** to see if it is valid.
+```
+const isoDatestringValidator = require("iso-datestring-validator");
+
+isoDatestringValidator.isValidISODateString('2019-07-09T15:03:36.000+00:00');
+// true
+
+isoDatestringValidator.isValidISODateString('20190709T150336Z');
+
+```
+
+That's all about this package. Have fun, feel free to contribute with some test :]
