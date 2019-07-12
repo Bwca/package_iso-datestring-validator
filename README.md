@@ -87,6 +87,7 @@ isoDatestringValidator.isValidISODateString('2019-07-09T15:03:36.000+00:00');
 // true
 
 isoDatestringValidator.isValidISODateString('20190709T150336Z');
+// true
 
 ```
 
