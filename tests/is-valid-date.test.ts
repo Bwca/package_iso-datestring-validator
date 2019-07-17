@@ -2,15 +2,35 @@ import moment from 'moment';
 import { isValidDate } from '../src/iso-datestring-validator';
 import { pad } from './utility-functions/pad.function';
 
-test(`isValidDate. expect all moment dates from 0001 up to year 10000 to be true. also expect all ISO strings to validate`, () => {
+
+const isValidDateAsyncWrapper = (date: string, s = '-') => Promise.resolve(isValidDate(date, s));
+
+test(`isValidDate. expect all moment dates from 0001 up to year 5000 to be true. also expect all ISO strings to validate`, async () => {
   const dateFormat = "YYYY-MM-DD";
   const startDate = `0001-01-01`;
-  const endYear = 10000;
+  const endYear = 5000;
   const date = moment(startDate, dateFormat);
+  const results = [];
+
   while (date.year() < endYear) {
-    expect(isValidDate(date.format(dateFormat))).toBe(true);
+    results.push(isValidDateAsyncWrapper(date.format(dateFormat)));
     date.add(1, "d");
   }
+  expect(await Promise.all(results)).not.toContain(false);
+});
+
+test(`isValidDate. expect all moment dates from 5000 up to year 10000 to be true. also expect all ISO strings to validate`, async () => {
+  const dateFormat = "YYYY-MM-DD";
+  const startDate = `5000-01-01`;
+  const endYear = 10000;
+  const date = moment(startDate, dateFormat);
+  const results = [];
+
+  while (date.year() < endYear) {
+    results.push(isValidDateAsyncWrapper(date.format(dateFormat)));
+    date.add(1, "d");
+  }
+  expect(await Promise.all(results)).not.toContain(false);
 });
 
 test(`isValidDate. expect function to return true, if passed an empty separator with a valid date`, () => {

@@ -25,7 +25,7 @@
   },
   "files": [],
   "scripts": {
-    "test": "jest",
+    "test": "jest --verbose --maxConcurrency=20 --maxWorkers=80%",
     "test-year-month": "jest --t 'isValidYearMonth'",
     "test-date": "jest --t 'isValidDate'",
     "test-time": "jest --t 'isValidTime'",
@@ -53,5 +53,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Bwca/iso-datestring-validator.git"
+  },
+  "dependencies": {
+    "@types/node": "^12.6.3"
   }
 }
