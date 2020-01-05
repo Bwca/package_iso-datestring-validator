@@ -1,12 +1,13 @@
 import moment from 'moment';
-import { isValidDate } from '../src/iso-datestring-validator';
-import { pad } from './utility-functions/pad.function';
 
+import { isValidDate } from '../src/iso-datestring-validator';
+
+import { pad } from './utility-functions/pad.function';
 
 const isValidDateAsyncWrapper = (date: string, s = '-') => Promise.resolve(isValidDate(date, s));
 
 test(`isValidDate. expect all moment dates from 0001 up to year 5000 to be true. also expect all ISO strings to validate`, async () => {
-  const dateFormat = "YYYY-MM-DD";
+  const dateFormat = 'YYYY-MM-DD';
   const startDate = `0001-01-01`;
   const endYear = 5000;
   const date = moment(startDate, dateFormat);
@@ -14,13 +15,13 @@ test(`isValidDate. expect all moment dates from 0001 up to year 5000 to be true.
 
   while (date.year() < endYear) {
     results.push(isValidDateAsyncWrapper(date.format(dateFormat)));
-    date.add(1, "d");
+    date.add(1, 'd');
   }
   expect(await Promise.all(results)).not.toContain(false);
 });
 
 test(`isValidDate. expect all moment dates from 5000 up to year 10000 to be true. also expect all ISO strings to validate`, async () => {
-  const dateFormat = "YYYY-MM-DD";
+  const dateFormat = 'YYYY-MM-DD';
   const startDate = `5000-01-01`;
   const endYear = 10000;
   const date = moment(startDate, dateFormat);
@@ -28,21 +29,21 @@ test(`isValidDate. expect all moment dates from 5000 up to year 10000 to be true
 
   while (date.year() < endYear) {
     results.push(isValidDateAsyncWrapper(date.format(dateFormat)));
-    date.add(1, "d");
+    date.add(1, 'd');
   }
   expect(await Promise.all(results)).not.toContain(false);
 });
 
 test(`isValidDate. expect function to return true, if passed an empty separator with a valid date`, () => {
-  expect(isValidDate("20190101", '')).toBe(true);
+  expect(isValidDate('20190101', '')).toBe(true);
 });
 
 test(`isValidDate. expect function to return false, if a valid date contains an invalid digit separator`, () => {
-  expect(isValidDate("2019/01/01")).toBe(false);
+  expect(isValidDate('2019/01/01')).toBe(false);
 });
 
 test(`isValidDate. expect function to return true, if valid date contains an different digit separator, which is provided as an argument`, () => {
-  expect(isValidDate("2019/01/01", "/")).toBe(true);
+  expect(isValidDate('2019/01/01', '/')).toBe(true);
 });
 
 test(`isValidDate. expect 29 February to validate on leap years and fail on non-leap years from year 0001 to year 10000`, () => {
@@ -80,8 +81,8 @@ test(`isValidDate. expect all dates after 31st to always fail for all months`, (
 });
 
 test(`isValidDate. September, April, June and November have 30 days, expect false when these months have 31st date`, () => {
-  const months = ["04", "06", "09", "11"];
-  months.forEach(m => expect(isValidDate(`2019-${m}-31`)).toBe(false));
+  const months = ['04', '06', '09', '11'];
+  months.forEach((m) => expect(isValidDate(`2019-${m}-31`)).toBe(false));
 });
 
 test(`isValidDate. February cannot have 30+ days`, () => {

@@ -1,16 +1,17 @@
 import { isValidZoneOffset } from '../src/iso-datestring-validator';
+
 import { negativeZones } from './constants/timezones/negative-zones.const';
-import { pad } from './utility-functions/pad.function';
 import { positiveZones } from './constants/timezones/positive-zones.const';
+import { pad } from './utility-functions/pad.function';
 
 const maxDigits = 2;
 
 test(`isValidZoneOffset. expect all negative offsets to validate`, () => {
-    negativeZones.forEach(i => expect(isValidZoneOffset(i, false)).toBe(true));
+    negativeZones.forEach((i) => expect(isValidZoneOffset(i, false)).toBe(true));
 });
 
 test(`isValidZoneOffset. expect all positive offsets to validate`, () => {
-    positiveZones.forEach(i => expect(isValidZoneOffset(i, true)).toBe(true));
+    positiveZones.forEach((i) => expect(isValidZoneOffset(i, true)).toBe(true));
 });
 
 test(`isValidZoneOffset. expect all non-existing negative zones to fail validation`, () => {
