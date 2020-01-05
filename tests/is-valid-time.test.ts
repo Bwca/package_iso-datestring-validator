@@ -1,16 +1,17 @@
 import { isValidTime } from '../src/iso-datestring-validator';
+
 import { pad } from './utility-functions/pad.function';
 
 /** max number of digits in hour/minute */
 const maxDigits = 2;
 
- test(`isValidTime. expect all hours with 0 minutes from 00:00 to 24:00 to validate true, 25+ hours to validate false`, () => {
+test(`isValidTime. expect all hours with 0 minutes from 00:00 to 24:00 to validate true, 25+ hours to validate false`, () => {
     for (let hour = 0; hour <= 99; hour++) {
         const validationResult = isValidTime(`${pad(hour.toString(), maxDigits)}:00:00`);
         hour < 25 ? expect(validationResult).toBe(true) : expect(validationResult).toBe(false);
     }
 });
- 
+
 test(`isValidTime. expect all minutes to validate beween 0 and 59, and to fail afterwards (from 60 to 99)`, () => {
     for (let minute = 0; minute <= 99; minute++) {
         const validationResult = isValidTime(`00:${pad(minute.toString(), maxDigits)}:00`);
