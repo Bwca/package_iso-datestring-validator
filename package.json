@@ -39,7 +39,7 @@
     "validation",
     "validator"
   ],
-  "main": "iso-datestring-validator.js",
+  "main": "./dist/index.js",
   "description": "The goal of the package is to provide lightweight tools for validating strings denotings dates and time. It includes ISO 8601 datestring validation, simple YYYY-MM-DD date validation and time validation in hh:mm:ss.fff format. See details in readme.",
   "repository": {
     "type": "git",
