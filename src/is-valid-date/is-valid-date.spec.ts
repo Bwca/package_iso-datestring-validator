@@ -1,8 +1,8 @@
 import moment from 'moment';
 
-import { isValidDate } from '../src/iso-datestring-validator';
+import { pad } from '../tests/utility-functions/pad.function';
 
-import { pad } from './utility-functions/pad.function';
+import { isValidDate } from './is-valid-date.function';
 
 const isValidDateAsyncWrapper = (date: string, s = '-') =>
   Promise.resolve(isValidDate(date, s));
