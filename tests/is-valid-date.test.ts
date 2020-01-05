@@ -4,7 +4,8 @@ import { isValidDate } from '../src/iso-datestring-validator';
 
 import { pad } from './utility-functions/pad.function';
 
-const isValidDateAsyncWrapper = (date: string, s = '-') => Promise.resolve(isValidDate(date, s));
+const isValidDateAsyncWrapper = (date: string, s = '-') =>
+  Promise.resolve(isValidDate(date, s));
 
 test(`isValidDate. expect all moment dates from 0001 up to year 5000 to be true. also expect all ISO strings to validate`, async () => {
   const dateFormat = 'YYYY-MM-DD';
@@ -52,7 +53,9 @@ test(`isValidDate. expect 29 February to validate on leap years and fail on non-
   const digits = 4;
   while (year < maxYear) {
     const decembetDate = `${pad(year.toString(), digits)}-02-29`;
-    !moment([year]).isLeapYear() ? expect(isValidDate(decembetDate)).toBe(false) : expect(isValidDate(decembetDate)).toBe(true);
+    !moment([year]).isLeapYear()
+      ? expect(isValidDate(decembetDate)).toBe(false)
+      : expect(isValidDate(decembetDate)).toBe(true);
     year++;
   }
 });
@@ -63,7 +66,9 @@ test(`isValidDate. expect only 1-12 months to pass validation, 13-99 to fail`, (
 
   while (month < 100) {
     const date = `2019-${pad(month.toString(), digits)}-01`;
-    month < 13 ? expect(isValidDate(date)).toBe(true) : expect(isValidDate(date)).toBe(false);
+    month < 13
+      ? expect(isValidDate(date)).toBe(true)
+      : expect(isValidDate(date)).toBe(false);
     month++;
   }
 });
