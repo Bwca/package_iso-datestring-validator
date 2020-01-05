@@ -6,15 +6,13 @@
     "ts-jest": "^24.0.2",
     "ts-loader": "^6.2.1",
     "tslint": "^5.20.1",
-    "typescript": "^3.7.4",
-    "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10"
+    "typescript": "^3.7.4"
   },
   "jest": {
     "verbose": true
   },
   "scripts": {
-    "build": "yarn webpack",
+    "build": "yarn tsc",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "test": "jest --verbose",
     "test-year-month": "jest --t 'isValidYearMonth'",
