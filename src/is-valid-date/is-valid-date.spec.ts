@@ -18,7 +18,8 @@ test(`isValidDate. expect all moment dates from 0001 up to year 5000 to be true.
 
   // Act
   while (date.year() < endYear) {
-    promisedResults.push(isValidDateAsyncWrapper(date.format(dateFormat)));
+    const currentDate = date.format(dateFormat);
+    promisedResults.push(isValidDateAsyncWrapper(currentDate));
     date.add(1, 'd');
   }
   results = await Promise.all(promisedResults);
@@ -39,7 +40,8 @@ test(`isValidDate. expect all moment dates from 5000 up to year 10000 to be true
 
   // Act
   while (date.year() < endYear) {
-    promisedResults.push(isValidDateAsyncWrapper(date.format(dateFormat)));
+    const currentDate = date.format(dateFormat);
+    promisedResults.push(isValidDateAsyncWrapper(currentDate));
     date.add(1, 'd');
   }
   results = await Promise.all(promisedResults);
