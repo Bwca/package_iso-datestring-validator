@@ -23,6 +23,10 @@ yarn add iso-datestring-validator
 
 ## Import
 ```
+import isoDatestringValidator from "iso-datestring-validator";
+```
+or
+```
 const isoDatestringValidator = require("iso-datestring-validator");
 ```
 
@@ -61,8 +65,6 @@ isoDatestringValidator.isValidTime("13:00:00");
 
 isoDatestringValidator.isValidTime("13:00:00.000000000");
 // true
-
-
 ```
 
 ### Year and month validation
@@ -88,7 +90,6 @@ isoDatestringValidator.isValidISODateString('2019-07-09T15:03:36.000+00:00');
 
 isoDatestringValidator.isValidISODateString('20190709T150336Z');
 // true
-
 ```
 
 That's all about this package. Have fun, feel free to contribute with some test :]
