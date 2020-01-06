@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`isValidISODateString. expect a valid ISO string to validate with all negative zone offsets 1`] = `
+Array [
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+]
+`;
+
+exports[`isValidISODateString. expect a valid ISO string to validate with all positive zone offsets 1`] = `
+Array [
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+]
+`;
+
+exports[`isValidISODateString. expect all valid ISO 8601 strings to validate 1`] = `
+Array [
+  true,
+  true,
+  true,
+  true,
+]
+`;
