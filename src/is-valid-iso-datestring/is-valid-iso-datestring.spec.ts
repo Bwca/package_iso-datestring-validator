@@ -4,22 +4,44 @@ import { POSITIVE_TIMEZONES } from '../tests/constants/timezones/positive-timezo
 
 import { isValidISODateString } from './is-valid-iso-datestring.function';
 
-const noZoneString = '2019-07-09T15:03:36';
+const noZoneValidISODateTimeString = '2019-07-09T15:03:36';
 
 test(`isValidISODateString. expect all valid ISO 8601 strings to validate`, () => {
-  SOME_VALID_ISO_DATETIME_STRINGS.forEach((s) =>
-    expect(isValidISODateString(s)).toBe(true),
-  );
+  // Arrange
+  let results: boolean[];
+
+  // Act
+  results = SOME_VALID_ISO_DATETIME_STRINGS.map((s) => isValidISODateString(s));
+
+  // Assert
+  expect(results).not.toContain(false);
+  expect(results).toMatchSnapshot();
 });
 
 test(`isValidISODateString. expect a valid ISO string to validate with all negative zone offsets`, () => {
-  NEGATIVE_TIMEZONES.forEach((s) =>
-    expect(isValidISODateString(`${noZoneString}-${s}`)).toBe(true),
+  // Arrange
+  let results: boolean[];
+
+  // Act
+  results = NEGATIVE_TIMEZONES.map((s) =>
+    isValidISODateString(`${noZoneValidISODateTimeString}-${s}`),
   );
+
+  // Assert
+  expect(results).not.toContain(false);
+  expect(results).toMatchSnapshot();
 });
 
 test(`isValidISODateString. expect a valid ISO string to validate with all positive zone offsets`, () => {
-  POSITIVE_TIMEZONES.forEach((s) =>
-    expect(isValidISODateString(`${noZoneString}+${s}`)).toBe(true),
+  // Arrange
+  let results: boolean[];
+
+  // Act
+  results = POSITIVE_TIMEZONES.map((s) =>
+    isValidISODateString(`${noZoneValidISODateTimeString}+${s}`),
   );
+
+  // Assert
+  expect(results).not.toContain(false);
+  expect(results).toMatchSnapshot();
 });

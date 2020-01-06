@@ -7,18 +7,32 @@ import { isValidZoneOffset } from './is-valid-timezone-offset.function';
 const maxDigits = 2;
 
 test(`isValidZoneOffset. expect all negative offsets to validate`, () => {
-  NEGATIVE_TIMEZONES.forEach((i) =>
-    expect(isValidZoneOffset(i, false)).toBe(true),
-  );
+  // Arrange
+  let results: boolean[];
+
+  // Act
+  results = NEGATIVE_TIMEZONES.map((i) => isValidZoneOffset(i, false));
+
+  // Assert
+  expect(results).not.toContain(false);
 });
 
 test(`isValidZoneOffset. expect all positive offsets to validate`, () => {
-  POSITIVE_TIMEZONES.forEach((i) =>
-    expect(isValidZoneOffset(i, true)).toBe(true),
-  );
+  // Arrange
+  let results: boolean[];
+
+  // Act
+  results = POSITIVE_TIMEZONES.map((i) => isValidZoneOffset(i, true));
+
+  // Assert
+  expect(results).not.toContain(false);
 });
 
 test(`isValidZoneOffset. expect all non-existing negative zones to fail validation`, () => {
+  // Arrange
+  const negativeResults: boolean[] = [];
+
+  // Act
   for (let x = 0; x < 100; x++) {
     for (let y = 0; y < 100; y++) {
       const offset = `${pad(x.toString(), maxDigits)}:${pad(
@@ -26,13 +40,20 @@ test(`isValidZoneOffset. expect all non-existing negative zones to fail validati
         maxDigits,
       )}`;
       if (!NEGATIVE_TIMEZONES.includes(offset)) {
-        expect(isValidZoneOffset(offset, false)).toBe(false);
+        negativeResults.push(isValidZoneOffset(offset, false));
       }
     }
   }
+
+  // Assert
+  expect(negativeResults).not.toContain(true);
 });
 
 test(`isValidZoneOffset. expect all non-existing positive zones to fail validation`, () => {
+  // Arrange
+  const negativeResults: boolean[] = [];
+
+  // Act
   for (let x = 0; x < 100; x++) {
     for (let y = 0; y < 100; y++) {
       const offset = `${pad(x.toString(), maxDigits)}:${pad(
@@ -40,8 +61,11 @@ test(`isValidZoneOffset. expect all non-existing positive zones to fail validati
         maxDigits,
       )}`;
       if (!POSITIVE_TIMEZONES.includes(offset)) {
-        expect(isValidZoneOffset(offset, true)).toBe(false);
+        negativeResults.push(isValidZoneOffset(offset, true));
       }
     }
   }
+
+  // Assert
+  expect(negativeResults).not.toContain(true);
 });

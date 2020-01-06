@@ -17,11 +17,11 @@
     "build": "yarn tsc",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "test": "jest --verbose",
-    "test-year-month": "jest --t 'isValidYearMonth'",
-    "test-date": "jest --t 'isValidDate'",
-    "test-time": "jest --t 'isValidTime'",
-    "test-zones": "jest --t 'isValidZoneOffset'",
-    "test-iso": "jest --t 'isValidISODateString'"
+    "test:year-month": "jest --t 'isValidYearMonth'",
+    "test:date": "jest --t 'isValidDate'",
+    "test:time": "jest --t 'isValidTime'",
+    "test:zones": "jest --t 'isValidZoneOffset'",
+    "test:iso": "jest --t 'isValidISODateString'"
   },
   "name": "iso-datestring-validator",
   "author": {
