@@ -29,7 +29,7 @@
     "email": "yepishevv@gmail.com"
   },
   "license": "MIT",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "keywords": [
     "date",
     "iso8601",
@@ -44,8 +44,5 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Bwca/iso-datestring-validator.git"
-  },
-  "dependencies": {
-    "@types/node": "^12.6.3"
   }
 }
