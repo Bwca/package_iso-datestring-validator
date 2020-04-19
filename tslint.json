@@ -23,6 +23,5 @@
     "arrow-parens": true,
     "object-literal-sort-keys": false,
     "arrow-return-shorthand": true
-  },
-  "rulesDirectory": []
+  }
 }
