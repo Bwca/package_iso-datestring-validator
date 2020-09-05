@@ -7,7 +7,7 @@ export function isValidISODateString(dateString: string): boolean {
   const dateSeparator = getStringSeparator(date);
   const isDateValid = isValidDate(date, dateSeparator);
 
-  return isDateValid && isValidTime(timeWithOffset, getTimeStringSeparator(timeWithOffset));
+  return isDateValid && isValidTime(timeWithOffset, getTimeStringSeparator(timeWithOffset), true);
 }
 
 function getTimeStringSeparator(timeString: string): string {

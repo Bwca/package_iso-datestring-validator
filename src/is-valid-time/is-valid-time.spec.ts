@@ -128,7 +128,7 @@ test(`isValidTime.expect to validate with timezome`, () => {
   let result: boolean;
 
   // Act
-  result = isValidTime(time);
+  result = isValidTime(time, undefined,  true);
 
   // Assert
   expect(result).toBe(true);
@@ -140,7 +140,7 @@ test(`isValidTime.expect to validate with timezome and no separators`, () => {
   let result: boolean;
 
   // Act
-  result = isValidTime(time, '');
+  result = isValidTime(time, '', true);
 
   // Assert
   expect(result).toBe(true);
@@ -152,7 +152,7 @@ test(`isValidTime.expect to validate with positive timezones`, () => {
   let results: boolean[];
 
   // Act
-  results = POSITIVE_TIMEZONES.map((z) => isValidTime(`${time}+${z}`, ''));
+  results = POSITIVE_TIMEZONES.map((z) => isValidTime(`${time}+${z}`, '', true));
 
   // Assert
   expect(results).not.toContain(false);
@@ -164,7 +164,7 @@ test(`isValidTime.expect to validate with positive timezones which have no separ
   let results: boolean[];
 
   // Act
-  results = POSITIVE_TIMEZONES.map((z) => isValidTime(`${time}+${z.replace(/\D/g, '')}`, ''));
+  results = POSITIVE_TIMEZONES.map((z) => isValidTime(`${time}+${z.replace(/\D/g, '')}`, '', true));
 
   // Assert
   expect(results).not.toContain(false);
@@ -176,7 +176,7 @@ test(`isValidTime.expect to validate with negative timezones`, () => {
   let results: boolean[];
 
   // Act
-  results = NEGATIVE_TIMEZONES.map((z) => isValidTime(`${time}-${z}`, ''));
+  results = NEGATIVE_TIMEZONES.map((z) => isValidTime(`${time}-${z}`, '', true));
 
   // Assert
   expect(results).not.toContain(false);
@@ -188,7 +188,7 @@ test(`isValidTime.expect to validate with negative timezones which have no separ
   let results: boolean[];
 
   // Act
-  results = NEGATIVE_TIMEZONES.map((z) => isValidTime(`${time}-${z.replace(/\D/g, '')}`, ''));
+  results = NEGATIVE_TIMEZONES.map((z) => isValidTime(`${time}-${z.replace(/\D/g, '')}`, '', true));
 
   // Assert
   expect(results).not.toContain(false);
@@ -200,7 +200,7 @@ test(`isValidTime.expect to validate with - separators`, () => {
   let results: boolean;
 
   // Act
-  results = isValidTime(time, '-', true);
+  results = isValidTime(time, '-', false);
 
   // Assert
   expect(results).toBe(true);
