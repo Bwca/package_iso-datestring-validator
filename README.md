@@ -6,7 +6,14 @@ A simple package for validating strings denoting dates and time, including ISO 8
 
 1. **Date validation**. YYYY-MM-DD format from 0001-01-01 to 9999-12-31, leap year friendly. Custom digit separators and null separators supported: YYYY/MM/DD or YYYYMMDD is no problem.
 
-2. **Time validation**. HH:mm:ss.fff format, seconds and fractions of seconds being optional. Custom digit separators supported for HHmmss as well (no custom separator for fractions, it is dot).
+2. **Time validation**. HH:mm:ss.fff±hh:mm format, seconds, fractions of seconds and timezone offset being optional. Custom digit separators supported for HHmmss as well (no custom separator for fractions, it is dot).
+
+**Caveat**: do not use '-' and '+' as separators when validating time with timezone. I am reluctant to fix this unless it is an issue.
+
+```
+isValidTime('14-45-15.000+00-00', '-', true)
+// will yield wrong result
+```
 
 3. **Year-month validation**.
 
@@ -75,7 +82,7 @@ isValidDate('2019/01/31', '/');
 
 ### Time validation
 
-Time string in HH:mm:ss.fff format can be validated with the **isValidTime** function. Seconds and fractions are optional. However, if using fractions min number of numbers is 1 and max is 9.
+Time string in HH:mm:ss.fff±hh:mm format can be validated with the **isValidTime** function. Seconds and fractions are optional. However, if using fractions min number of numbers is 1 and max is 9. Zone offset is optional as well, its check is switched off by default.
 
 ```
 import { isValidTime } from 'iso-datestring-validator';
@@ -87,6 +94,17 @@ isValidTime('13:00:00');
 // true
 
 isValidTime('13:00:00.000000000');
+// true
+
+// pass time, separator and boolean flag to enable zone offset check
+isValidTime('14:45:15.000+00:00', ':', true)
+// true
+
+// you can take advantage of default separator if you pass undefined as second param
+isValidTime('14:45:15.000+00:00', undefined, true)
+// true
+
+isValidTime('144515.000Z', '', true)
 // true
 
 ```
