@@ -1,5 +1,6 @@
 src
 .vscode
+.idea
 .prettierrc
 jest.config.js
 package-lock.json
