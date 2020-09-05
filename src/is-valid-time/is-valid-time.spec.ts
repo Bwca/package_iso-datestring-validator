@@ -1,4 +1,4 @@
-import { pad } from '../tests/utility-functions/pad.function';
+import { pad } from '../utils/tests/utility-functions/pad.function';
 
 import { isValidTime } from './is-valid-time.function';
 
