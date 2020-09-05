@@ -1,4 +1,4 @@
-export function getStringSeparator(dateOrTimeString: string): string {
-  const separator = /\D/.exec(dateOrTimeString);
+export function getStringSeparator(dateString: string): string {
+  const separator = /\D/.exec(dateString);
   return separator ? separator[0] : '';
 }
