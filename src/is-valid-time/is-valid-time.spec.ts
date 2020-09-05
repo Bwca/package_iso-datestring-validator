@@ -196,12 +196,12 @@ test(`isValidTime.expect to validate with negative timezones which have no separ
 
 test(`isValidTime.expect to validate with - separators`, () => {
   // Arrange
-  const time = '144515';
-  let results: boolean[];
+  const time = '14-45-15';
+  let results: boolean;
 
   // Act
-  results = POSITIVE_TIMEZONES.map((z) => isValidTime(`${time}+${z.replace(/\D/g, '')}`, ''));
+  results = isValidTime(time, '-', true);
 
   // Assert
-  expect(results).not.toContain(false);
+  expect(results).toBe(true);
 });

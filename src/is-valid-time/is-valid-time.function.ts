@@ -3,16 +3,17 @@ import { getStringSeparator } from '../utils/get-string-separator.function';
 
 /**
  *
- * @param timeWithOffset hh:mm:ss (optional)
+ * @param timeWithOffset hh:mm:ss(optional)±hh:mm(optional)
  * @param s separator between hours, minutes and optional seconds
+ * @param isNoTimezoneCheck boolean flag, pass true not to check for valid timezone
  */
-export function isValidTime(timeWithOffset: string, s = ':'): boolean {
+export function isValidTime(timeWithOffset: string, s = ':', isNoTimezoneCheck = true): boolean {
 
   const validator = new RegExp(
     `^([0-1]|2(?=([0-3])|4${s}00))[0-9]${s}[0-5][0-9](${s}([0-5]|6(?=0))[0-9])?(\.[0-9]{1,9})?$`,
   );
 
-  if (!/[Z+\-]/.test(timeWithOffset)) {
+  if (isNoTimezoneCheck || !/[Z+\-]/.test(timeWithOffset)) {
     return validator.test(timeWithOffset);
   }
 
