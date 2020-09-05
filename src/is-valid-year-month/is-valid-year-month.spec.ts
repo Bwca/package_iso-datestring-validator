@@ -1,4 +1,4 @@
-import { pad } from '../utils/tests/utility-functions/pad.function';
+import { pad } from '../tests/utility-functions/pad.function';
 
 import { isValidYearMonth } from './is-valid-year-month.function';
 

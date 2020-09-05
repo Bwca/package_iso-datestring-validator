@@ -1,6 +1,6 @@
-import { NEGATIVE_TIMEZONES } from '../utils/tests/constants/timezones/negative-timezones.const';
-import { POSITIVE_TIMEZONES } from '../utils/tests/constants/timezones/positive-timezones.const';
-import { pad } from '../utils/tests/utility-functions/pad.function';
+import { NEGATIVE_TIMEZONES } from '../tests/constants/timezones/negative-timezones.const';
+import { POSITIVE_TIMEZONES } from '../tests/constants/timezones/positive-timezones.const';
+import { pad } from '../tests/utility-functions/pad.function';
 
 import { isValidZoneOffset } from './is-valid-timezone-offset.function';
 

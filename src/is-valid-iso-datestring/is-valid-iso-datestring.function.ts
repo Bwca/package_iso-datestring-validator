@@ -1,6 +1,6 @@
+import { getStringSeparator } from '../get-string-separator/get-string-separator.function';
 import { isValidDate } from '../is-valid-date/is-valid-date.function';
 import { isValidTime } from '../is-valid-time/is-valid-time.function';
-import { getStringSeparator } from '../utils/get-string-separator.function';
 
 export function isValidISODateString(dateString: string): boolean {
   const [date, timeWithOffset] = dateString.split('T');

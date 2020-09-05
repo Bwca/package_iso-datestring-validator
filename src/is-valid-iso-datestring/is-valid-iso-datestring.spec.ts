@@ -1,6 +1,6 @@
-import { SOME_VALID_ISO_DATETIME_STRINGS } from '../utils/tests/constants/some-valid-iso-strings.const';
-import { NEGATIVE_TIMEZONES } from '../utils/tests/constants/timezones/negative-timezones.const';
-import { POSITIVE_TIMEZONES } from '../utils/tests/constants/timezones/positive-timezones.const';
+import { SOME_VALID_ISO_DATETIME_STRINGS } from '../tests/constants/some-valid-iso-strings.const';
+import { NEGATIVE_TIMEZONES } from '../tests/constants/timezones/negative-timezones.const';
+import { POSITIVE_TIMEZONES } from '../tests/constants/timezones/positive-timezones.const';
 
 import { isValidISODateString } from './is-valid-iso-datestring.function';
 

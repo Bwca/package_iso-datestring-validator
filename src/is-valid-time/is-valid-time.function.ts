@@ -1,5 +1,5 @@
+import { getStringSeparator } from '../get-string-separator/get-string-separator.function';
 import { isValidZoneOffset } from '../is-valid-timezone-offset/is-valid-timezone-offset.function';
-import { getStringSeparator } from '../utils/get-string-separator.function';
 
 /**
  *
