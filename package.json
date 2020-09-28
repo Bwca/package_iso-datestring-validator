@@ -11,7 +11,7 @@
     "verbose": true
   },
   "scripts": {
-    "build": "webpack",
+    "build": "tsc",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "test": "jest --verbose",
     "test:year-month": "jest --t 'isValidYearMonth'",
