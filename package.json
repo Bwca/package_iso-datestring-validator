@@ -1,8 +1,10 @@
 {
   "devDependencies": {
     "@types/jest": "^24.0.15",
+    "glob": "^7.1.6",
     "jest": "^24.8.0",
     "moment": "^2.24.0",
+    "terser": "^5.3.3",
     "ts-jest": "^24.0.2",
     "tslint": "^5.20.1",
     "typescript": "^3.7.4"
@@ -11,7 +13,7 @@
     "verbose": true
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && node ./minify-dist.js",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "test": "jest --verbose",
     "test:year-month": "jest --t 'isValidYearMonth'",
