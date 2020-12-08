@@ -45,3 +45,14 @@ test(`isValidISODateString. expect a valid ISO string to validate with all posit
   expect(results).not.toContain(false);
   expect(results).toMatchSnapshot();
 });
+
+test('isValidISODateString does not validate date without time', () => {
+  // Arrange
+  const date = '2020-12-04';
+
+  // Act
+  const isValid = isValidISODateString(date);
+
+  // Assert
+  expect(isValid).toBeFalsy();
+});
