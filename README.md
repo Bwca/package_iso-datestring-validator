@@ -41,12 +41,6 @@ yarn add iso-datestring-validator
 import * as isoDatestringValidator from 'iso-datestring-validator';
 ```
 
-or
-
-```
-const isoDatestringValidator = require('iso-datestring-validator');
-```
-
 alternatively you can import the function that you need separately:
 
 ```
