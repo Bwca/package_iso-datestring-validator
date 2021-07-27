@@ -10,8 +10,8 @@ A simple package for validating strings denoting dates and time, including ISO 8
 
 **Caveat**: do not use '-' and '+' as separators when validating time with timezone. I am reluctant to fix this unless it is an issue.
 
-```
-isValidTime('14-45-15.000+00-00', '-', true)
+```js
+isValidTime('14-45-15.000+00-00', '-', true);
 // will yield wrong result
 ```
 
@@ -25,25 +25,25 @@ isValidTime('14-45-15.000+00-00', '-', true)
 
 ## Installation
 
-```
+```js
 npm i --save iso-datestring-validator
 ```
 
 or
 
-```
+```js
 yarn add iso-datestring-validator
 ```
 
 ## Import
 
-```
+```ts
 import * as isoDatestringValidator from 'iso-datestring-validator';
 ```
 
 alternatively you can import the function that you need separately:
 
-```
+```ts
 import {
   isValidDate,
   isValidISODateString,
@@ -58,7 +58,7 @@ import {
 
 Pass a **YYYY-MM-DD** date string to the **isValidDate** function to check it. To validate dates that use a custom digit separator, pass it as the second argument.
 
-```
+```ts
 import { isValidDate } from 'iso-datestring-validator';
 
 isValidDate('2019-01-31');
@@ -78,7 +78,7 @@ isValidDate('2019/01/31', '/');
 
 Time string in HH:mm:ss.fff±hh:mm format can be validated with the **isValidTime** function. Seconds and fractions are optional. However, if using fractions min number of numbers is 1 and max is 9. Zone offset is optional as well, its check is switched off by default.
 
-```
+```ts
 import { isValidTime } from 'iso-datestring-validator';
 
 isValidTime('13:00');
@@ -107,7 +107,7 @@ isValidTime('144515.000Z', '', true)
 
 These are validated by the **isValidYearMonth** function. Rules same as in the previous case: a string **YYYY-MM** and a custom digit separator if required.
 
-```
+```ts
 import { isValidYearMonth } from 'iso-datestring-validator';
 
 isValidYearMonth('2019/01', '/');
@@ -121,7 +121,7 @@ isValidYearMonth('2019-01');
 
 Pass a string to **isValidISODateString** to see if it is valid.
 
-```
+```ts
 import { isValidISODateString } from 'iso-datestring-validator';
 
 isValidISODateString('2019-07-09T15:03:36.000+00:00');
