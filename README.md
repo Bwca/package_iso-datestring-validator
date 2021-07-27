@@ -91,16 +91,15 @@ isValidTime('13:00:00.000000000');
 // true
 
 // pass time, separator and boolean flag to enable zone offset check
-isValidTime('14:45:15.000+00:00', ':', true)
+isValidTime('14:45:15.000+00:00', ':', true);
 // true
 
 // you can take advantage of default separator if you pass undefined as second param
-isValidTime('14:45:15.000+00:00', undefined, true)
+isValidTime('14:45:15.000+00:00', undefined, true);
 // true
 
-isValidTime('144515.000Z', '', true)
+isValidTime('144515.000Z', '', true);
 // true
-
 ```
 
 ### Year and month validation
@@ -129,7 +128,8 @@ isValidISODateString('2019-07-09T15:03:36.000+00:00');
 
 isValidISODateString('20190709T150336Z');
 // true
-
 ```
 
 That's all about this package. Have fun, feel free to contribute with some test :]
+
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/bwca)
