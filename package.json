@@ -4,16 +4,18 @@
     "glob": "^7.1.6",
     "jest": "^24.8.0",
     "moment": "^2.24.0",
-    "terser": "^5.3.3",
     "ts-jest": "^24.0.2",
+    "ts-loader": "^9.2.5",
     "tslint": "^5.20.1",
-    "typescript": "^3.7.4"
+    "typescript": "^3.7.4",
+    "webpack": "^5.51.1",
+    "webpack-cli": "^4.8.0"
   },
   "jest": {
     "verbose": true
   },
   "scripts": {
-    "build": "tsc && node ./minify-dist.js",
+    "build": "webpack",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "test": "jest --verbose",
     "test:year-month": "jest --t 'isValidYearMonth'",
@@ -25,7 +27,7 @@
   "name": "iso-datestring-validator",
   "author": {
     "name": "Volodymyr Yepishev",
-    "email": "yepishevv@gmail.com"
+    "email": "i.m.bwca@gmail.com"
   },
   "license": "MIT",
   "version": "2.1.4",
