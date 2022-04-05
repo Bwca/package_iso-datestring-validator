@@ -2,6 +2,8 @@ import { getStringSeparator } from '../get-string-separator/get-string-separator
 import { isValidDate } from '../is-valid-date/is-valid-date.function';
 import { isValidTime } from '../is-valid-time/is-valid-time.function';
 
+import { getTimeStringSeparator } from './get-time-string-separator/get-time-string-separator.function';
+
 export function isValidISODateString(dateString: string): boolean {
   const [date, timeWithOffset] = dateString.split('T');
   const dateSeparator = getStringSeparator(date);
@@ -11,10 +13,7 @@ export function isValidISODateString(dateString: string): boolean {
     return false;
   }
 
-  return isDateValid && isValidTime(timeWithOffset, getTimeStringSeparator(timeWithOffset), true);
-}
+  const timeStringSeparator = getTimeStringSeparator(timeWithOffset);
 
-function getTimeStringSeparator(timeString: string): string {
-  const matches = timeString.match(/[^Z+\-\d]/);
-  return Array.isArray(matches) ? matches[0] : '';
+  return isDateValid && isValidTime(timeWithOffset, timeStringSeparator, true);
 }
