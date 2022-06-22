@@ -12,7 +12,9 @@
     "webpack-cli": "^4.8.0"
   },
   "jest": {
-    "verbose": true
+    "verbose": true,
+    "preset": "ts-jest",
+    "testEnvironment": "node"
   },
   "scripts": {
     "build": "webpack",
