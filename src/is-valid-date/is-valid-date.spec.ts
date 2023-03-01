@@ -206,3 +206,14 @@ describe('Issue 30, 0 in day number', () => {
     expect(result).toBe(false);
   });
 });
+
+test('Should work with special regex characters', () => {
+  // Arrange
+  const date = '2023$02$23';
+
+  // Act
+  const isValid = isValidDate(date, '$');
+
+  // Assert
+  expect(isValid).toBeTruthy();
+});

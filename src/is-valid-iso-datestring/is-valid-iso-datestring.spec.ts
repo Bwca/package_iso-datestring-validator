@@ -60,3 +60,15 @@ describe('Core isValidISODateString tests', () => {
     expect(isValid).toBeFalsy();
   });
 });
+describe('Bugfixes', () => {
+  test('SyntaxError: Invalid regular expression #32', () => {
+    // Arrange
+    const date = '(2023-02-23)';
+
+    // Act
+    const isValid = isValidISODateString(date);
+
+    // Assert
+    expect(isValid).toBeFalsy();
+  });
+});
